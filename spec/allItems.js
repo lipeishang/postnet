@@ -1,11 +1,7 @@
-const app = require('../main/app');
+'use strict';
 
-describe('app', () => {
-
-    const postCode = "95713";
-    const correctCode = app.checkPostCode(postCode);
-    const code = app.getCode(correctCode);
-    var allItems = [
+function loadAllItems() {
+    return [
         {
             item: {
                 num: 1,
@@ -67,21 +63,4 @@ describe('app', () => {
             }
         },
     ];
-    const expectBarcode = app.buildBarcode(allItems, code);
-    const barcode = '||:|:::|:|:|:::|:::||::||::|:|:|';
-    it('should check postCode', () => {
-
-        expect(correctCode).toEqual(postCode);
-    });
-    
-    it('should get code', () => {
-        expect(code).toEqual('957135');
-    })
-
-    it('should buildBarcode', () => {
-        expect(expectBarcode).toEqual(barcode);
-    })
-    
-    
-    
-});
+}
